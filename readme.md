@@ -14,9 +14,6 @@ Additionally, this improves geofetch Python package for Mac users (see below).
 This generates a list of GSEs from given GEO search query and writes it to metadata.txt
 metadata.txt is then processed, retrieving metadata of files associated with given GSEs. 
 
-## TODO
-Combine metadata files into one using the same script.
-
 ## Requirements
 1. geofetch (Python package)
     a. coloredlogs
