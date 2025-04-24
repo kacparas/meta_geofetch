@@ -15,7 +15,7 @@ This generates a list of GSEs from given GEO search query and writes it to metad
 metadata.txt is then processed, retrieving metadata of files associated with given GSEs. 
 
 ## Requirements
-``` conda create -f environment.yml
+``` conda create -f environment.yml```
 
 ## Citations
 https://doi.org/10.1093/bioinformatics/btad069
