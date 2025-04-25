@@ -9,13 +9,17 @@ Additionally, this improves geofetch Python package for Mac users (see below).
 
 ## Usage
 
-```python meta_geofetch.py [GEO query]```
+```python meta_geofetch.py```
+```GEO query```
 
-This generates a list of GSEs from given GEO search query and writes it to metadata.txt
-metadata.txt is then processed, retrieving metadata of files associated with given GSEs. 
+This generates a list of GSEs from given GEO search query and writes it to metadata.txt  
+metadata.txt is then processed, retrieving metadata of files associated with given GSEs.
+Metadata then might be filtered using provided filters and concatenated into one file.
+
 
 ## Requirements
 ``` conda create -f environment.yml```
+``` conda activate meta_geofetch```
 
 ## Citations
 https://doi.org/10.1093/bioinformatics/btad069
