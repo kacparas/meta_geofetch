@@ -12,7 +12,7 @@ Additionally, this improves geofetch Python package for Mac users (see below).
 ```python meta_geofetch.py```  
 ```Enter GEO search query: [your_GEO_query]```  
 ```Enter organism name (for filtering, optional): [latin organism name]```  
-```Enter assay type (for filtering, optional): [i.e. ChIP-seq]```
+```Enter assay type (for filtering, optional): [i.e. ChIP-seq]```  
 ```Enter target string in sample_name (for filtering and renaming the metadata directory)```
 
 
@@ -22,7 +22,7 @@ Metadata then might be filtered using provided filters and concatenated into one
 
 
 ## Requirements
-``` conda create -f environment.yml```
+``` conda create -f environment.yml```  
 ``` conda activate meta_geofetch```
 
 ## Citations
