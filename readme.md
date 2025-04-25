@@ -1,5 +1,4 @@
 # meta-geofetch
-## Introduction
 meta-geofetch is a bioinformatics semi-automatic pipeline to fetch metadata from Gene Expression Omnibus (GEO) database.
 This tool is particularly useful when planning a complex analysis with various samples. Especially if:
 - Samples are retreived using a variety of keywords
