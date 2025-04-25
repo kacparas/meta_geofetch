@@ -5,8 +5,6 @@ This tool is particularly useful when planning a complex analysis with various s
 - Samples are retreived using a variety of keywords
 - Data needs to be inspected/filtered for sample selection
 
-Additionally, this improves geofetch Python package for Mac users (see below).
-
 ## Usage
 
 ```python meta_geofetch.py```  
@@ -22,8 +20,12 @@ Metadata then might be filtered using provided filters and concatenated into one
 
 
 ## Requirements
-``` conda create -f environment.yml```  
+``` conda create -f environment.yml```   
 ``` conda activate meta_geofetch```
+
+## Improved usage
+The original geofetch package was designed to run a list of GSEs retrieved using Finder function, which resulted in crashes if a single GSE was faulty.
+meta-geofetch surpasses this limitation by sequentially calling geofetch for each individual GSE using an integrated bash script. 
 
 ## Citations
 https://doi.org/10.1093/bioinformatics/btad069
