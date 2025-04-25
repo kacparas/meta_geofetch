@@ -9,8 +9,12 @@ Additionally, this improves geofetch Python package for Mac users (see below).
 
 ## Usage
 
-```python meta_geofetch.py```
-```GEO query```
+```python meta_geofetch.py```  
+```Enter GEO search query: [your_GEO_query]```  
+```Enter organism name (for filtering, optional): [latin organism name]```  
+```Enter assay type (for filtering, optional): [i.e. ChIP-seq]```
+```Enter target string in sample_name (for filtering and renaming the metadata directory)```
+
 
 This generates a list of GSEs from given GEO search query and writes it to metadata.txt  
 metadata.txt is then processed, retrieving metadata of files associated with given GSEs.
