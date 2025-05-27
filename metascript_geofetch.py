@@ -16,6 +16,64 @@ def combine_csvs_by_columns(directory, output_csv=None, pattern="gse*_raw.csv"):
         output_csv (str, optional): The name of the output CSV file. If None, returns the DataFrame.
         pattern (str, optional): The file name pattern to match. Defaults to "*.csv".
     """
+
+
+    def standartize_parameters(metadata):
+        """
+        Standartizes parameters in the metadata
+        """
+
+        conversion_dict = {
+            "fgo": "FGO",
+            "1cell" : "1C",
+            "2cell" : "2C",
+            "4cell" : "4C",
+            "8cell" : "8C",
+            "1-cell": "1C",
+            "1_cell": "1C",
+            "2-cell": "2C",
+            "2_cell": "2C",
+            "4_cell": "4C",
+            "4-cell": "4C",
+            "8_cell": "8C",
+            "8-cell": "8C",
+            "zygote": "1C",
+            "e11_5": "E11.5",
+            "mesc": "ESC",
+            "mes": "ESC",
+            "esc": "ESC",
+            "tsc": "TSC",
+            "icm": "ICM",
+            "te": "TE",
+            "e5_5": "E5.5",
+            "e14": "E14",
+            "e16_5": "E16.5",
+            "gv": "GV",
+            "mii": "MII",
+            "e6_5epi": "E6.5Epi",
+            "e6_5_epi": "E6.5Epi",
+            "e65epi": "E6.5Epi",
+            "morula": "morula",
+            "blastocyst": "blastocyst",
+            "pn5": "pn5",
+            "pn3": "pn3"
+        }
+        
+        metadata.insert(1, column = "stage_std", value = pd.NA)
+        for index, row in metadata.iterrows():
+            found_match = False
+            cols_to_check = ["developmental_stage", "sample_source_name_ch1", "sample_name"]
+            for col in cols_to_check:
+                if isinstance(row[col], str):
+                    for pattern, value in conversion_dict.items():
+                        if pattern.lower() in row[col].lower():
+                            metadata.loc[index, "stage_std"] = value
+                            found_match = True
+                            break
+                if found_match:
+                    break
+
+
     all_data = pd.DataFrame()  # initialize an empty dataframe
     files_found = False #added
 
@@ -65,6 +123,8 @@ def combine_csvs_by_columns(directory, output_csv=None, pattern="gse*_raw.csv"):
     # reindex the dataframe with the desired column order
     all_data = all_data.reindex(columns=column_order)
 
+    standartize_parameters(all_data)
+
     if output_csv:
         all_data.to_csv(output_csv, index=False)  # save the combined dataframe to a csv file
         print(f"finished combining csv files into {output_csv} with specified column order and separator columns.")
@@ -73,6 +133,7 @@ def combine_csvs_by_columns(directory, output_csv=None, pattern="gse*_raw.csv"):
         return all_data
     else:
         return None
+
 def format_contact_name(name):
     """
     Formats a contact name string from "First,,Last" to "LastF".
