@@ -276,6 +276,11 @@ if __name__ == "__main__":
             print(f"filtering by target: '{target_filter}' in 'sample_name' column (case-insensitive)")
             filtered_df = filtered_df[filtered_df['sample_name'].str.lower().str.contains(target_filter.lower(), na=False, case=False)]
 
+        if search_string.startswith('GSM'):
+            print(f"filtering by GSM")
+            gsm_list = search_string.split()
+            filtered_df = filtered_df[filtered_df['sample_geo_accession'].isin(gsm_list)]
+
         output_csv_filtered = combined_output_csv.replace(".csv", "_filtered.csv")
         filtered_df.to_csv(output_csv_filtered, index=False)
         print(f"filtered data saved to {output_csv_filtered}")
