@@ -122,8 +122,9 @@ def combine_csvs_by_columns(directory, output_csv=None, pattern="gse*_raw.csv"):
 
     # reindex the dataframe with the desired column order
     all_data = all_data.reindex(columns=column_order)
-
-    standartize_parameters(all_data)
+    
+    if 'developmental_stage' in all_data.columns:
+        standartize_parameters(all_data)
 
     if output_csv:
         all_data.to_csv(output_csv, index=False)  # save the combined dataframe to a csv file
